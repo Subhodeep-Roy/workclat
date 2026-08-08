@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+import { getApiBaseUrl } from '../../lib/api';
+
+const getAPI = () => getApiBaseUrl();
 
 type Invoice = {
   id: string;
@@ -171,7 +173,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('vendorflow-token');
-    fetch(`${API}/invoices`, { headers: { Authorization: `Bearer ${token}` } })
+    fetch(`${getAPI()}/invoices`, { headers: { Authorization: `Bearer ${token}` } })
       .then(r => r.ok ? r.json() : [])
       .then(d => setInvoices(Array.isArray(d) ? d : []))
       .catch(() => { });

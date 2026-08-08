@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+import { getApiBaseUrl } from '../../lib/api';
+
+const getAPI = () => getApiBaseUrl();
 
 type Summary = {
   avgProcessingDays: number;
@@ -38,7 +40,7 @@ export default function AnalyticsPage() {
   const [period, setPeriod] = useState('Last 30 Days');
 
   useEffect(() => {
-    fetch(`${API}/analytics/summary`)
+    fetch(`${getAPI()}/analytics/summary`)
       .then(r => r.ok ? r.json() : null)
       .then(d => d && setSummary(d))
       .catch(() => {});

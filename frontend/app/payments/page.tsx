@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchJson, postJson, type PaymentBatch } from '../../lib/api';
+import { fetchJson, postJson, getApiBaseUrl, type PaymentBatch } from '../../lib/api';
 
 function fmt(n: number): string {
   if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(2)}M`;
@@ -73,7 +73,7 @@ export default function PaymentsPage() {
 
   const cancelBatch = async (batchId: string) => {
     try {
-      const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/payments/${batchId}`, {
+      const resp = await fetch(`${getApiBaseUrl()}/payments/${batchId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${typeof window !== 'undefined' ? localStorage.getItem('vendorflow-token') : ''}` },
       });

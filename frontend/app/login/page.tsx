@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import './login.css'; // We'll add this for responsive styles if needed, or just use inline styles if sufficient. Let's just use inline and global css.
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+import { getApiBaseUrl } from '../../lib/api';
 
 const features = ['AI invoice review', 'Live approval routing', 'Anomaly detection', 'Vendor management'];
 
@@ -24,7 +24,7 @@ export default function LoginPage() {
     const payload = isSignUp ? form : { email: form.email, password: form.password };
 
     try {
-      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      const response = await fetch(`${getApiBaseUrl()}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

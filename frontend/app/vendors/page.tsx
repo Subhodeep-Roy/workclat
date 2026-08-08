@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+import { getApiBaseUrl } from '../../lib/api';
+
+const getAPI = () => getApiBaseUrl();
 
 type Vendor = {
   id: string;
@@ -29,7 +31,7 @@ export default function VendorsPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('vendorflow-token');
-    fetch(`${API}/vendors`, { headers: { Authorization: `Bearer ${token}` } })
+    fetch(`${getAPI()}/vendors`, { headers: { Authorization: `Bearer ${token}` } })
       .then(r => r.ok ? r.json() : [])
       .then(d => setVendors(Array.isArray(d) ? d : []))
       .catch(() => {});
@@ -44,7 +46,7 @@ export default function VendorsPage() {
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('vendorflow-token');
-    const res = await fetch(`${API}/vendors`, {
+    const res = await fetch(`${getAPI()}/vendors`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify(form),
