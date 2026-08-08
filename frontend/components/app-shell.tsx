@@ -5,10 +5,13 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
 const navItems = [
-  { href: '/dashboard',  label: 'Dashboard',    iconClass: 'fa-solid fa-chart-pie' },
-  { href: '/analytics',  label: 'Analytics',     iconClass: 'fa-solid fa-chart-line' },
-  { href: '/vendors',    label: 'Vendor Master', iconClass: 'fa-solid fa-address-book' },
-  { href: '/settings',   label: 'Settings',      iconClass: 'fa-solid fa-gear' },
+  { href: '/dashboard',  label: 'Dashboard',       iconClass: 'fa-solid fa-chart-pie' },
+  { href: '/invoices',   label: 'Invoices',         iconClass: 'fa-solid fa-file-invoice' },
+  { href: '/approvals',  label: 'Approvals',        iconClass: 'fa-solid fa-clipboard-check' },
+  { href: '/payments',   label: 'Payments',         iconClass: 'fa-solid fa-building-columns' },
+  { href: '/analytics',  label: 'Analytics',        iconClass: 'fa-solid fa-chart-line' },
+  { href: '/vendors',    label: 'Vendor Master',    iconClass: 'fa-solid fa-address-book' },
+  { href: '/settings',   label: 'Settings',         iconClass: 'fa-solid fa-gear' },
 ];
 
 function CenteredCard({ heading, sub }: { heading: string; sub: string }) {
