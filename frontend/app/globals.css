@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:          #f5f3ee;
+  --surface:     #ffffff;
+  --border:      #dedad3;
+  --text-primary:#1c1917;
+  --text-muted:  #78716c;
+  --accent:      #1a2e4a;
+  --accent-soft: #eef1f6;
+  --accent-hover:#0f1e33;
+  --gold:        #b8860b;
+  --gold-soft:   #fdf8ec;
+  --gold-border: #e8d5a0;
+  --success:     #166534;
+  --success-soft:#f0fdf4;
+  --danger:      #991b1b;
+  --danger-soft: #fef2f2;
+  --danger-border:#fecaca;
+  --radius:      10px;
+  --shadow-sm:   0 1px 4px rgba(26,46,74,0.06), 0 1px 2px rgba(26,46,74,0.04);
+  --shadow-md:   0 4px 16px rgba(26,46,74,0.10);
+  --shadow-lg:   0 8px 32px rgba(26,46,74,0.13);
+  --font-body:   'Inter', system-ui, sans-serif;
+  --font-heading:'Playfair Display', Georgia, serif;
+}
+
+html, body {
+  min-height: 100%;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+::selection {
+  background: #c7d4e8;
+  color: var(--text-primary);
+}
+
+/* ── Utility ── */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ── Button helpers ── */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 11px 26px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 11px 26px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block;
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-signin {
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-signin:hover {
+  background: var(--accent-hover);
+  text-decoration: none;
+}
+
+.nav-signup {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-signup:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Form inputs ── */
+input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(26, 46, 74, 0.10);
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: var(--accent-hover) !important;
+}
+
+/* ── Sidebar nav links ── */
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgba(255,255,255,0.55);
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.01em;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,0.09);
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.nav-link.active {
+  background: rgba(255,255,255,0.13);
+  color: #fff;
+  font-weight: 600;
+}

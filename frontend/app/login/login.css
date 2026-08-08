@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .login-container {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .login-container > div {
+    padding: 32px 24px !important;
+  }
+}
