@@ -204,7 +204,7 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section style={{ padding: '64px 0 80px', background: 'var(--bg)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, alignItems: 'center' }}>
 
             {/* Left copy */}
             <div>
@@ -272,11 +272,11 @@ export default function HomePage() {
         background: 'var(--surface)', padding: '40px 0',
       }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 0 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 20 }}>
             {metrics.map((m, i) => (
               <div key={m.label} style={{
-                padding: '0 28px',
-                borderRight: i < metrics.length - 1 ? '1px solid var(--border)' : 'none',
+                padding: '12px 20px',
+                borderRight: 'none',
                 opacity: metricsVisible ? 1 : 0,
                 transform: metricsVisible ? 'translateY(0)' : 'translateY(16px)',
                 transition: `opacity 0.45s ease ${i * 0.08}s, transform 0.45s ease ${i * 0.08}s`,
@@ -292,7 +292,7 @@ export default function HomePage() {
       {/* ── How it works ── */}
       <section id="how-it-works" style={{ padding: '80px 0 96px', background: 'var(--bg)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'flex-start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 48, alignItems: 'flex-start' }}>
 
             {/* sticky label column */}
             <div style={{ position: 'sticky', top: 80 }}>

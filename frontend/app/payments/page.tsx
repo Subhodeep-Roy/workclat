@@ -156,7 +156,7 @@ export default function PaymentsPage() {
       </div>
 
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
         {[
           { label: 'Pending Release', val: pendingBatches.length, sub: `${pendingBatches.reduce((s, b) => s + b.total_amount, 0) > 0 ? fmt(pendingBatches.reduce((s, b) => s + b.total_amount, 0)) : '$0'} on hold`, color: '#d97706', bg: '#fffbeb', border: '#fde68a' },
           { label: 'Released to Treasury', val: releasedBatches.length, sub: releasedBatches.length > 0 ? `${fmt(releasedBatches.reduce((s, b) => s + b.total_amount, 0))} authorized` : 'No releases yet', color: '#1e40af', bg: '#eff6ff', border: '#bfdbfe' },

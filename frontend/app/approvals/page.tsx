@@ -192,7 +192,7 @@ export default function ApprovalsPage() {
                   )}
 
                   {/* 3-way match summary */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10, marginBottom: 14 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 14 }}>
                     {[
                       { title: 'Invoice Data', icon: '🧾', items: [`ID: ${approval.invoice_id}`, `Amount: ${fmt(approval.invoice_amount)}`] },
                       { title: 'Exception Type', icon: '⚠️', items: [`Type: ${approval.exception_type ?? '—'}`, `Dept: ${approval.department ?? '—'}`] },

@@ -133,7 +133,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* ── Form inputs ── */
-input:focus {
+input:focus, select:focus, textarea:focus {
   border-color: var(--accent) !important;
   box-shadow: 0 0 0 3px rgba(26, 46, 74, 0.10);
 }
@@ -165,4 +165,78 @@ button[type="submit"]:hover:not(:disabled) {
   background: rgba(255,255,255,0.13);
   color: #fff;
   font-weight: 600;
+}
+
+/* ── Table responsive wrapper ── */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Global Responsive Media Queries ── */
+
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 14px;
+  }
+
+  main {
+    padding: 16px !important;
+  }
+
+  /* Force multi-column grids to single column on mobile */
+  div[style*="grid-template-columns"],
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust header search bar */
+  header div[style*="width: 340"] {
+    width: 100% !important;
+    max-width: 200px;
+  }
+
+  /* Form row stacks */
+  form div[style*="grid-template-columns"],
+  form div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Drawer width */
+  aside {
+    width: 85vw !important;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+
+  header div[style*="width: 340"] {
+    display: none !important;
+  }
+
+  /* Hero section adjustments */
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }

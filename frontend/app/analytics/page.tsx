@@ -71,7 +71,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Stats grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 18 }}>
         {[
           { label: 'Avg Processing Time', value: summary ? `${summary.avgProcessingDays} Days` : '—', note: '↓ 14% vs last month', noteColor: '#059669' },
           { label: 'Auto-Match Rate',      value: summary ? `${summary.autoMatchRate}%`       : '—', note: '↑ +3.1% efficiency',  noteColor: '#059669' },
@@ -89,7 +89,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Charts row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
 
         {/* Exception Breakdown */}
         <div style={{ background: '#fff', padding: '24px', borderRadius: 14, border: '1px solid #e2e8f0', boxShadow: '0 1px 4px rgba(0,0,0,0.05)' }}>

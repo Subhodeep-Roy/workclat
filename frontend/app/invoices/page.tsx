@@ -114,7 +114,7 @@ function InvoiceResultCard({ invoice, onDismiss }: { invoice: Invoice; onDismiss
         }}>✕</button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: c ? '1fr 1fr' : '1fr', gap: 0 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: c ? 'repeat(auto-fit, minmax(280px, 1fr))' : '1fr', gap: 0 }}>
         {/* Agent notes */}
         <div style={{ padding: '16px 20px', borderRight: c ? '1px solid #e2e8f0' : 'none' }}>
           <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.08em', color: '#64748b', marginBottom: 10 }}>
@@ -257,7 +257,7 @@ export default function InvoicesPage() {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 16 }}>
 
               {/* Invoice basics */}
               <div>

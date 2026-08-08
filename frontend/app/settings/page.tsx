@@ -67,7 +67,7 @@ export default function SettingsPage() {
       )}
 
       {/* Settings panels */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
 
         {/* AI Match Tolerance */}
         <div style={{ background: '#fff', padding: '24px', borderRadius: 14, border: '1px solid #e2e8f0', boxShadow: '0 1px 4px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -185,7 +185,7 @@ export default function SettingsPage() {
         <h3 style={{ fontWeight: 700, fontSize: 14, color: '#0f172a', marginBottom: 18 }}>
           Work Clat Agent Pipeline Status
         </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 14 }}>
           {[
             { name: 'Invoice Agent',   desc: 'Ingestion & Extraction (95% confidence threshold)', status: 'Running' },
             { name: 'Validation Agent',desc: '3-Way Match against PO & GRN', status: 'Running' },

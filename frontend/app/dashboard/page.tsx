@@ -40,20 +40,20 @@ function SidePanel({ invoice, onClose, onDecision }: {
       {/* Backdrop */}
       <div onClick={onClose} style={{ position: 'absolute', inset: 0, background: 'rgba(15,23,42,0.4)', backdropFilter: 'blur(2px)' }} />
 
-      {/* Drawer — use top/right/bottom/left instead of insetY */}
+      {/* Drawer — responsive width */}
       <div style={{
         position: 'absolute',
         top: 0, right: 0, bottom: 0,
-        width: '70vw',
+        width: 'min(92vw, 760px)',
         background: '#fff',
         boxShadow: '-8px 0 40px rgba(0,0,0,0.20)',
         display: 'flex',
         flexDirection: 'column',
       }}>
         {/* Panel header */}
-        <div style={{ padding: '24px 28px', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid #e2e8f0', flexShrink: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: '#0f172a' }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, color: '#0f172a' }}>
               {invoice.vendor_name} – {invoice.invoice_number}
             </h2>
             <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8', fontSize: 20, padding: '4px 8px', borderRadius: 8 }}>
@@ -67,7 +67,7 @@ function SidePanel({ invoice, onClose, onDecision }: {
         </div>
 
         {/* Body */}
-        <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', overflow: 'hidden' }}>
+        <div style={{ flex: 1, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', overflow: 'auto' }}>
           {/* Left: Simulated PDF */}
           <div style={{ background: '#0f172a', padding: 24, overflowY: 'auto' }}>
             <div style={{ fontSize: 11, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginBottom: 12, display: 'flex', justifyContent: 'space-between' }}>
@@ -220,7 +220,7 @@ export default function DashboardPage() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 1280, margin: '0 auto' }}>
 
       {/* ── KPI RIBBON ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
 
         {/* Total Pending AP = sum of all active invoices (exceptions + approved) */}
         <div style={{ background: '#fff', padding: 24, borderRadius: 14, border: '1px solid #e2e8f0', boxShadow: '0 1px 4px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -264,7 +264,7 @@ export default function DashboardPage() {
       )}
 
       {/* ── SPLIT QUEUE VIEW ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
 
         {/* Exception Queue */}
         <div style={{ background: '#fff', borderRadius: 14, border: '1px solid #e2e8f0', boxShadow: '0 1px 4px rgba(0,0,0,0.06)', display: 'flex', flexDirection: 'column', height: 520 }}>
