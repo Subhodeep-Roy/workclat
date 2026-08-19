@@ -182,12 +182,15 @@ def create_invoice(payload: InvoiceCreate, current_user: UserProfile = Depends(g
     invoice_id = f"inv-{str(uuid.uuid4())[:8]}"
     notes: list[str] = []
 
+    payload_data = payload.model_dump()
+    payload_data.pop("status", None)
+
     # ── Agent 1: Confidence scoring ──
     confidence = _simulate_confidence(payload)
     if confidence.overall < CONFIDENCE_THRESHOLD:
         notes.append(f"Agent 1: Low OCR confidence ({confidence.overall}) — diverted to manual review")
         invoice = InvoiceResponse(
-            id=invoice_id, **payload.model_dump(),
+            id=invoice_id, **payload_data,
             status="manual_review", confidence=confidence, agent_notes=notes,
         )
         user_invoices.append(invoice)
@@ -224,7 +227,7 @@ def create_invoice(payload: InvoiceCreate, current_user: UserProfile = Depends(g
         )
 
     invoice = InvoiceResponse(
-        id=invoice_id, **payload.model_dump(),
+        id=invoice_id, **payload_data,
         status=status, confidence=confidence, agent_notes=notes,
     )
     user_invoices.append(invoice)
